@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KotoKata Support</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(120deg, #0ea5e9, #2563eb, #7c3aed);
+      background-size: 200% 200%;
+      animation: bg-shift 12s ease infinite;
+      color: #0f172a;
+      line-height: 1.6;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    @keyframes bg-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 980px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      color: #e2e8f0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.25);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      backdrop-filter: blur(6px);
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+    }
+
+    .lang-toggle button {
+      appearance: none;
+      background: transparent;
+      color: #e2e8f0;
+      padding: 8px 14px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .lang-toggle button.active {
+      background: #fff;
+      color: #0f172a;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 26px;
+    }
+
+    .panel {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(2,6,23,0.25);
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      animation: float-in 600ms ease both;
+    }
+
+    .panel:nth-child(1) { animation-delay: 80ms; }
+    .panel:nth-child(2) { animation-delay: 160ms; }
+
+    @keyframes float-in {
+      from { opacity: 0; transform: translateY(10px) scale(0.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .panel-content { padding: 24px; }
+
+    h1.page-title {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      color: #0f172a;
+    }
+
+    .subtitle { color: #475569; margin-bottom: 6px; }
+
+    h2 {
+      color: #4a90e2;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #4a90e2;
+      padding-bottom: 5px;
+    }
+
+    .section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 18px; box-shadow: 0 10px 24px rgba(2,6,23,0.10); border: 1px solid #e2e8f0; }
+
+    .lang {
+      margin-bottom: 15px;
+    }
+
+    .lang-en {
+      color: #718096;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .lang-ja {
+      color: #2d3748;
+      font-weight: 500;
+    }
+
+    ol {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .link-button { display: inline-flex; align-items: center; gap: 8px; background: #2563eb; color: #fff; padding: 10px 16px; text-decoration: none; border-radius: 10px; font-weight: 600; margin: 6px 0; transition: transform .15s ease, box-shadow .15s ease; box-shadow: 0 8px 20px rgba(37,99,235,.35); }
+
+    .link-button:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(37,99,235,.45); }
+
+    .mockup {
+      position: relative;
+      background: linear-gradient(135deg, #f8fafc, #eef2ff);
+      border-left: 12px solid #2563eb;
+      height: 280px;
+      display: grid;
+      place-items: center;
+    }
+
+    .mockup .note { color: #475569; text-align: center; }
+
+    /* carousel */
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+    .carousel img {
+      position: absolute;
+      max-height: 92%;
+      max-width: 92%;
+      width: auto;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(2,6,23,0.2);
+      opacity: .35;               /* 非アクティブも見える */
+      transform: translateX(0) scale(.85);
+      transition: opacity .25s ease, transform .25s ease, z-index .25s ease;
+      z-index: 1;
+    }
+    .carousel img.active { opacity: 1; transform: translateX(0) scale(1); z-index: 3; }
+    .carousel .nav {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+      pointer-events: none;
+    }
+    .carousel button {
+      pointer-events: auto;
+      appearance: none;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(15,23,42,.65);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .carousel button:hover { transform: translateY(-1px); background: rgba(15,23,42,.8); }
+
+    .contact {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 18px 0;
+      color: inherit;
+      box-shadow: 0 10px 24px rgba(2,6,23,0.10);
+    }
+
+    .contact p { margin: 6px 0; }
+
+    .contact a { color: #2563eb; text-decoration: none; font-weight: 600; }
+
+    .contact a:hover { text-decoration: underline; }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 30px 0;
+    }
+
+    .footer {
+      text-align: center;
+      color: #718096;
+      font-size: 0.9rem;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .nav { flex-direction: column; gap: 12px; align-items: stretch; }
+      .lang-toggle { align-self: flex-end; }
+    }
+    @media (max-width: 480px) {
+      body { padding: 16px; }
+      h1.page-title { font-size: 1.6rem; }
+      .section { padding: 16px; }
+      .mockup { height: 220px; }
+      .link-button { width: 100%; justify-content: center; }
+    }
+
+    /* Language visibility */
+    [data-lang="en"] .lang-en { display: block; }
+    [data-lang="en"] .lang-ja { display: none; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="nav">
+      <div class="brand">
+        <div class="brand-badge">KK</div>
+        <div>KotoKata Support</div>
+      </div>
+      <div class="lang-toggle" role="tablist" aria-label="Language toggle">
+        <button id="btn-en" class="active" aria-selected="true">EN</button>
+        <button id="btn-ja" aria-selected="false">日本語</button>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="panel">
+        <div class="panel-content">
+          <h1 class="page-title">KotoKata Support</h1>
+          <p class="subtitle lang-en">Your AI-powered Indonesian dictionary assistant</p>
+          <p class="subtitle lang-ja">AIが支えるインドネシア語学習辞書</p>
+        </div>
+      </div>
+      <div class="panel mockup">
+        <div class="carousel" id="kk-carousel">
+          <img src="images/8_main.png" alt="Main screen" class="active">
+          <img src="images/2_wordguide.png" alt="Word guide">
+          <img src="images/3_word.png" alt="Word detail">
+          <img src="images/6_quiz.png" alt="Quiz">
+          <div class="nav">
+            <button type="button" aria-label="Previous" id="kk-prev">‹</button>
+            <button type="button" aria-label="Next" id="kk-next">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="section">
+    <h2>説明 / About</h2>
+    
+    <div class="lang">
+      <div class="lang-ja">「Kotokata」は、インドネシア語を学ぶ人のために開発したAI辞書アプリです。<br>
+      既存の辞書が少なく、使いにくいと感じたことから、Gemini APIを活用して自分で開発しました。<br>
+      検索だけでなく、履歴の保存・単語帳の作成・学習用クイズ機能を搭載。<br>
+      日々の学習をサポートします。</div>
+      <div class="lang-en">Kotokata is an AI-powered Indonesian dictionary designed for learners of the language.<br>
+      Since there were few reliable dictionaries available, I built one myself using the Gemini API.<br>
+      It features search history, personal wordbook, and quiz functions to help you study more effectively.</div>
+    </div>
+
+    <div class="lang">
+      <div class="lang-ja">Geminiを利用するため、初回にAPIキーの登録が必要です。<br>
+      APIの利用料金は非常に低く、通常の使用では<strong>月に数円（10円未満）</strong>ほどです。<br>
+      AIが語彙の意味や用例を柔軟に説明してくれるため、従来の辞書にはない自然な理解が得られます。</div>
+      <div class="lang-en">You'll need to register your Gemini API key upon first launch.<br>
+      The cost is extremely low — less than ¥10 per month with regular use.<br>
+      By leveraging AI, the app provides flexible explanations and natural examples that go beyond traditional dictionary definitions.</div>
+    </div>
+
+    <div class="lang">
+      <div class="lang-ja">学習者自身が"使いながら成長できる"新しいタイプのAI辞書を、ぜひお試しください。</div>
+      <div class="lang-en">Try a new type of AI dictionary that grows with your learning journey.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>使い方 / How to Use</h2>
+
+    <ol>
+      <li>
+        <div class="lang">
+          <div class="lang-ja"><strong>Google APIキーを発行します</strong><br>
+          <a href="https://aistudio.google.com/api-keys" target="_blank" class="link-button">👉 こちらのページ</a>からAPIキーを発行してください。</div>
+          <div class="lang-en"><strong>Generate your Google API key</strong><br>
+          <a href="https://aistudio.google.com/api-keys" target="_blank" class="link-button">👉 Click here</a> to create your API key.</div>
+        </div>
+      </li>
+
+      <li>
+        <div class="lang">
+          <div class="lang-ja"><strong>発行したAPIキーを設定ページに入力します</strong><br>
+          アプリ内の「設定」画面から入力すると、AI辞書が利用可能になります。</div>
+          <div class="lang-en"><strong>Enter the API key in the Settings page</strong><br>
+          Once entered, the AI-powered dictionary will be activated.</div>
+        </div>
+      </li>
+
+      <li>
+        <div class="lang">
+          <div class="lang-ja"><strong>検索画面で単語を検索します</strong><br>
+          日本語→インドネシア語、インドネシア語→日本語の両方に対応しています。</div>
+          <div class="lang-en"><strong>Search for words</strong><br>
+          You can search both Japanese → Indonesian and Indonesian → Japanese.</div>
+        </div>
+      </li>
+
+      <li>
+        <div class="lang">
+          <div class="lang-ja"><strong>検索結果を単語帳に登録します</strong><br>
+          検索結果右上の「単語帳に追加」ボタンをタップします。</div>
+          <div class="lang-en"><strong>Add words to your wordbook</strong><br>
+          Tap "Add to Wordbook" at the top-right corner of the search results.</div>
+        </div>
+      </li>
+
+      <li>
+        <div class="lang">
+          <div class="lang-ja"><strong>単語帳からクイズを自動生成できます</strong><br>
+          登録した単語をもとに、AIが自動で学習クイズを作成します。</div>
+          <div class="lang-en"><strong>Generate quizzes automatically</strong><br>
+          The app creates quizzes automatically based on your saved words.</div>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="contact">
+    <h2 style="margin-top: 0;">
+      <span class="lang-en">Support & Contact</span>
+      <span class="lang-ja">サポート・問い合わせ</span>
+    </h2>
+    <div class="lang">
+      <div class="lang-en">If you have any questions or issues, please contact us at the email address below.</div>
+      <div class="lang-ja">ご質問や不具合などがありましたら、以下のメールアドレスまでご連絡ください。</div>
+    </div>
+    <p><a href="mailto:sato@socialart.jp">sato@socialart.jp</a></p>
+  </div>
+
+  <hr>
+
+  <div class="footer">
+    <p>© 2025 Social Art Inc.</p>
+  </div>
+
+  </div>
+
+  <script>
+    (function(){
+      var root = document.documentElement;
+      var btnEn = document.getElementById('btn-en');
+      var btnJa = document.getElementById('btn-ja');
+      // carousel
+      var c = document.getElementById('kk-carousel');
+      var slides = c ? Array.prototype.slice.call(c.querySelectorAll('img')) : [];
+      var idx = 0;
+      function place(k){
+        // 相対位置を算出（-2,-1,0,+1,+2...）
+        var n = slides.length;
+        var rel = (k - idx + n) % n; // 0..n-1
+        if(rel > n/2) rel = rel - n; // 例: 3/4 -> -1
+        var offset = 0;
+        var scale = .85;
+        var opacity = .35;
+        var z = 1;
+        if(rel === 0){ offset = 0; scale = 1; opacity = 1; z = 3; }
+        else if(Math.abs(rel) === 1){ offset = rel * 140; scale = .92; opacity = .7; z = 2; }
+        else { offset = rel * 200; scale = .85; opacity = .35; z = 1; }
+        slides[k].style.transform = 'translateX(' + offset + 'px) scale(' + scale + ')';
+        slides[k].style.opacity = opacity;
+        slides[k].style.zIndex = z;
+        slides[k].classList.toggle('active', rel === 0);
+      }
+      function show(i){
+        if(!slides.length) return;
+        idx = (i + slides.length) % slides.length;
+        slides.forEach(function(_, k){ place(k); });
+      }
+      var prev = document.getElementById('kk-prev');
+      var next = document.getElementById('kk-next');
+      if(prev && next){
+        prev.addEventListener('click', function(){ show(idx - 1); });
+        next.addEventListener('click', function(){ show(idx + 1); });
+        var startX = 0, endX = 0;
+        c.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; });
+        c.addEventListener('touchend', function(e){ endX = e.changedTouches[0].clientX; var dx = endX - startX; if(Math.abs(dx) > 40){ if(dx < 0) show(idx + 1); else show(idx - 1); } });
+      }
+      // 初期配置
+      show(0);
+      function setLang(l){
+        root.setAttribute('data-lang', l);
+        if(l==='en'){ btnEn.classList.add('active'); btnJa.classList.remove('active'); }
+        else { btnJa.classList.add('active'); btnEn.classList.remove('active'); }
+        localStorage.setItem('kk_support_lang', l);
+      }
+      btnEn.addEventListener('click', function(){ setLang('en'); });
+      btnJa.addEventListener('click', function(){ setLang('ja'); });
+      var saved = localStorage.getItem('kk_support_lang');
+      if(saved === 'ja' || saved === 'en'){ setLang(saved); }
+    })();
+  </script>
+
+</body>
+</html>
