@@ -320,7 +320,7 @@
 
     /* Full-bleed video */
     .full-bleed { position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; margin-top: 8px; margin-bottom: 28px; }
-    .full-bleed video { display: block; width: 100%; max-width: 100vw; height: auto; border-radius: 0; box-shadow: none; }
+    .full-bleed video { display: block; width: 100%; max-width: 100vw; height: auto; border-radius: 0; box-shadow: none; pointer-events: none; -webkit-user-select: none; user-select: none; }
     @media (min-width: 901px) {
       .full-bleed { left: 0; right: 0; margin-left: 0; margin-right: 0; width: 100%; }
       .full-bleed video { max-width: 100%; }
@@ -370,7 +370,7 @@
     </div>
 
   <div class="full-bleed reveal">
-    <video src="images/Key_video.mp4" controls playsinline autoplay muted loop>
+    <video src="images/Key_video.mp4" playsinline autoplay muted loop disablepictureinpicture>
       Your browser does not support the video tag.
     </video>
   </div>
