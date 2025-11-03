@@ -254,6 +254,13 @@
       margin-top: 30px;
     }
 
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(12px) scale(0.98); transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1); will-change: opacity, transform; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
       .nav { flex-direction: column; gap: 12px; align-items: stretch; }
@@ -291,27 +298,38 @@
       <div class="panel">
         <div class="panel-content">
           <h1 class="page-title">KotoKata Support</h1>
+          <video src="images/Key_video.mp4" controls playsinline autoplay muted loop style="width: 100%; border-radius: 12px; box-shadow: 0 10px 24px rgba(2,6,23,0.2); margin: 10px 0 8px;">
+            Your browser does not support the video tag.
+          </video>
           <p class="subtitle lang-en">Your AI-powered Indonesian dictionary assistant</p>
           <p class="subtitle lang-ja">AIが支えるインドネシア語学習辞書</p>
         </div>
       </div>
-      <div class="panel mockup">
-        <div class="carousel" id="kk-carousel">
-          <img src="images/8_main.png" alt="Main screen" class="active">
-          <img src="images/2_wordguide.png" alt="Word guide">
-          <img src="images/3_word.png" alt="Word detail">
-          <img src="images/6_quiz.png" alt="Quiz">
-          <div class="nav">
-            <button type="button" aria-label="Previous" id="kk-prev">‹</button>
-            <button type="button" aria-label="Next" id="kk-next">›</button>
-          </div>
-        </div>
-      </div>
     </div>
 
-  <div class="section">
-    <h2>説明 / About</h2>
-    
+  <div class="section reveal">
+    <div class="lang">
+      <div class="lang-ja">生成AIが普及しても、言語を学ぶ価値は変わりません。<br>
+      AIが翻訳してくれる時代でも、自分の言葉で伝え、相手の言葉を理解する楽しさは特別なものです。</div>
+      <div class="lang-en">Even in the age of generative AI, the joy of learning languages remains the same.<br>
+      AI can translate for us, but nothing replaces the excitement of expressing ourselves and connecting with others through language.</div>
+    </div>
+    <div class="lang">
+      <div class="lang-ja">「Kotokata」は、AIの力を活用して言語学習をもっと楽しく、効果的にするために生まれたアプリです。<br>
+      履歴の保存、単語帳、学習用クイズなど、学びを継続するための機能を備えています。</div>
+      <div class="lang-en">Kotokata is an AI-powered dictionary app designed to make language learning more effective and enjoyable.<br>
+      It includes search history, a personal wordbook, and quiz features to help you build and retain your vocabulary.</div>
+    </div>
+    <div class="lang">
+      <div class="lang-ja">AIがサポートするからこそ、より自然で文脈に合った意味を理解できる。<br>
+      そして、自分の言葉で話す力を育てられる——それが「Kotokata」の目指す学びの形です。</div>
+      <div class="lang-en">With AI’s assistance, you can understand words in context and grasp more natural meanings—<br>
+      helping you grow the true ability to communicate in your own words.</div>
+    </div>
+  </div>
+
+  <div class="section reveal">
+
     <div class="lang">
       <div class="lang-ja">「Kotokata」は、インドネシア語を学ぶ人のために開発したAI辞書アプリです。<br>
       既存の辞書が少なく、使いにくいと感じたことから、Gemini APIを活用して自分で開発しました。<br>
@@ -337,7 +355,22 @@
     </div>
   </div>
 
-  <div class="section">
+  <div class="section reveal">
+    <div class="panel mockup">
+      <div class="carousel" id="kk-carousel">
+        <img src="images/8_main.png" alt="Main screen" class="active">
+        <img src="images/2_wordguide.png" alt="Word guide">
+        <img src="images/3_word.png" alt="Word detail">
+        <img src="images/6_quiz.png" alt="Quiz">
+        <div class="nav">
+          <button type="button" aria-label="Previous" id="kk-prev">‹</button>
+          <button type="button" aria-label="Next" id="kk-next">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section reveal">
     <h2>使い方 / How to Use</h2>
 
     <ol>
@@ -388,7 +421,7 @@
     </ol>
   </div>
 
-  <div class="contact">
+  <div class="contact reveal">
     <h2 style="margin-top: 0;">
       <span class="lang-en">Support & Contact</span>
       <span class="lang-ja">サポート・問い合わせ</span>
@@ -460,6 +493,21 @@
       btnJa.addEventListener('click', function(){ setLang('ja'); });
       var saved = localStorage.getItem('kk_support_lang');
       if(saved === 'ja' || saved === 'en'){ setLang(saved); }
+      // scroll reveal
+      var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+      if('IntersectionObserver' in window){
+        var io = new IntersectionObserver(function(entries, observer){
+          entries.forEach(function(entry){
+            if(entry.isIntersecting){
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
+        reveals.forEach(function(el){ io.observe(el); });
+      } else {
+        reveals.forEach(function(el){ el.classList.add('visible'); });
+      }
     })();
   </script>
 
