@@ -6,15 +6,21 @@
   <title>KotoKata Support</title>
   <link rel="icon" type="image/png" href="images/KotoKata_icon.png">
   <link rel="apple-touch-icon" href="images/KotoKata_icon.png">
+  <link rel="canonical" href="https://satokenx.github.io/SA_privacy_policy/KotoKata_support.html">
+  <meta name="description" content="AIが支えるインドネシア語学習辞書 / Your AI-powered Indonesian dictionary assistant">
   <meta name="theme-color" content="#0ea5e9">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://satokenx.github.io/SA_privacy_policy/KotoKata_support.html">
   <meta property="og:title" content="KotoKata Support">
   <meta property="og:description" content="AIが支えるインドネシア語学習辞書 / Your AI-powered Indonesian dictionary assistant">
-  <meta property="og:image" content="images/KotoKata.png">
+  <meta property="og:image" content="https://satokenx.github.io/SA_privacy_policy/images/KotoKata.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="KotoKata - AI-powered Indonesian dictionary">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="KotoKata Support">
   <meta name="twitter:description" content="AIが支えるインドネシア語学習辞書">
-  <meta name="twitter:image" content="images/KotoKata.png">
+  <meta name="twitter:image" content="https://satokenx.github.io/SA_privacy_policy/images/KotoKata.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -167,7 +173,8 @@
       background-clip: text;
       color: transparent;
     }
-    h2 .lang-en { font-size: 1.1em; }
+    h2 .lang-en { font-size: 1.1em; color: #0b1220; background: none; -webkit-background-clip: initial; background-clip: initial; }
+    .subcard .lang-en strong { color: #0b1220; }
     .section > h2:first-child { margin-top: 2px; }
 
     .section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 18px; box-shadow: 0 10px 24px rgba(2,6,23,0.10); border: 1px solid #e2e8f0; }
@@ -199,6 +206,8 @@
     .link-button { display: inline-flex; align-items: center; gap: 8px; background: #2563eb; color: #fff; padding: 10px 16px; text-decoration: none; border-radius: 10px; font-weight: 600; margin: 6px 0; transition: transform .15s ease, box-shadow .15s ease; box-shadow: 0 8px 20px rgba(37,99,235,.35); }
 
     .link-button:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(37,99,235,.45); }
+    .link-chip { display: inline-flex; align-items: center; gap: 6px; background: #2563eb; color: #fff; padding: 4px 10px; text-decoration: none; border-radius: 999px; font-weight: 700; box-shadow: 0 6px 14px rgba(37,99,235,.30); }
+    .link-chip:hover { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(37,99,235,.40); }
 
     .mockup {
       position: relative;
@@ -407,8 +416,14 @@
       </div>
       <div class="subcard">
         <div class="lang">
-          <div class="lang-ja">Geminiを利用するため、初回にAPIキーの登録が必要です。<br>APIの利用料金は非常に低く、通常の使用では<strong>月に数円（10円未満）</strong>ほどです。<br>AIが語彙の意味や用例を柔軟に説明してくれるため、従来の辞書にはない自然な理解が得られます。<br>学習者自身が「使いながら成長できる」新しいタイプのAI辞書を、ぜひお試しください。</div>
-          <div class="lang-en">You'll need to register your Gemini API key upon first launch.<br>The cost is extremely low—typically less than ¥10 per month with regular use.<br>By leveraging AI, the app provides flexible explanations and natural examples beyond traditional dictionaries.<br>Try a new type of AI dictionary that grows with your learning journey.</div>
+          <div class="lang-ja">Geminiを利用するため、初回にAPIキーの登録が必要です。<br>APIの利用料金は非常に低く、通常の使用では<strong>月に数円（10円未満）</strong>ほどです。<br>AIが語彙の意味や用例を柔軟に説明してくれるため、従来の辞書にはない自然な理解が得られます。</div>
+          <div class="lang-en">You'll need to register your Gemini API key upon first launch.<br>The cost is extremely low—typically less than ¥10 per month with regular use.<br>By leveraging AI, the app provides flexible explanations and natural examples beyond traditional dictionaries.</div>
+        </div>
+      </div>
+      <div class="subcard">
+        <div class="lang">
+          <div class="lang-ja">学習者自身が「使いながら成長できる」新しいタイプのAI辞書を、ぜひお試しください。</div>
+          <div class="lang-en">Try a new type of AI dictionary that grows with your learning journey.</div>
         </div>
       </div>
     </div>
@@ -418,9 +433,13 @@
     <div class="panel mockup">
       <div class="carousel" id="kk-carousel">
         <img src="images/8_main.png" alt="Main screen" class="active">
+        <img src="images/1_search.png" alt="Search">
         <img src="images/2_wordguide.png" alt="Word guide">
         <img src="images/3_word.png" alt="Word detail">
+        <img src="images/4_history.png" alt="History">
+        <img src="images/5_wordlist.png" alt="Word list">
         <img src="images/6_quiz.png" alt="Quiz">
+        <img src="images/7_setting.png" alt="Settings">
         <div class="nav">
           <button type="button" aria-label="Previous" id="kk-prev">‹</button>
           <button type="button" aria-label="Next" id="kk-next">›</button>
@@ -438,28 +457,38 @@
     <div class="subcards reveal">
       <div class="subcard">
         <div class="lang">
-          <div class="lang-ja"><strong>Google APIキーを発行</strong><br>
-          <a href="https://aistudio.google.com/api-keys" target="_blank" class="link-button">👉 こちらのページ</a>からAPIキーを作成します。</div>
-          <div class="lang-en"><strong>Create your Google API key</strong><br>
-          <a href="https://aistudio.google.com/api-keys" target="_blank" class="link-button">👉 Click here</a> to generate your API key.</div>
+          <div class="lang-ja"><strong>1. Google APIキーを発行</strong><br>
+          <a href="https://aistudio.google.com/api-keys" target="_blank" class="link-chip">👉 こちらのページ</a>からAPIキーを作成します。<br>
+          発行の仕方は <a href="https://satokenx.github.io/SA_privacy_policy/google-api-guide.html" target="_blank" class="link-chip">👉 こちらのページ</a> を参考にしてください。</div>
+          <div class="lang-en"><strong>1. Create your Google API key</strong><br>
+          <a href="https://aistudio.google.com/api-keys" target="_blank" class="link-chip">👉 Click here</a> to generate your API key.<br>
+          For instructions, please see <a href="https://satokenx.github.io/SA_privacy_policy/google-api-guide.html" target="_blank" class="link-chip">👉 this page</a>.</div>
         </div>
       </div>
 
       <div class="subcard">
         <div class="lang">
-          <div class="lang-ja"><strong>アプリの「設定」に入力</strong><br>
+          <div class="lang-ja"><strong>2. アプリの「設定」に入力</strong><br>
           キーを入力すると、AI辞書機能が使えるようになります。</div>
-          <div class="lang-en"><strong>Enter it in Settings</strong><br>
+          <div class="lang-en"><strong>2. Enter it in Settings</strong><br>
           Once entered, the AI-powered dictionary is activated.</div>
         </div>
       </div>
 
       <div class="subcard">
         <div class="lang">
-          <div class="lang-ja"><strong>検索・単語帳・クイズ</strong><br>
-          単語を検索して、単語帳に追加。登録単語からクイズを自動生成できます。</div>
-          <div class="lang-en"><strong>Search, Wordbook, Quiz</strong><br>
-          Search words, add them to your wordbook, and generate quizzes automatically.</div>
+          <div class="lang-ja"><strong>3. 検索・単語帳</strong><br>
+          単語を検索して単語帳に追加できます。単語の検索はインドネシア語からも日本語からもできます。</div>
+          <div class="lang-en"><strong>3. Search & Wordbook</strong><br>
+          You can search words and add them to your wordbook. Search works Japanese ↔ Indonesian.</div>
+        </div>
+      </div>
+      <div class="subcard">
+        <div class="lang">
+          <div class="lang-ja"><strong>4. クイズ</strong><br>
+          単語帳に登録した単語からランダムにクイズを生成します。オリジナルの単語クイズ集を空き時間で！</div>
+          <div class="lang-en"><strong>4. Quiz</strong><br>
+          Generate random quizzes from your saved words. Practice anytime with your own word quiz set!</div>
         </div>
       </div>
     </div>
