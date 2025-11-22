@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="ja" data-lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,354 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(120deg, #0ea5e9, #2563eb, #7c3aed);
-      background-size: 200% 200%;
-      animation: bg-shift 12s ease infinite;
-      color: #0f172a;
-      line-height: 1.6;
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    @keyframes bg-shift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .shell {
-      width: 100%;
-      max-width: 980px;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      color: #e2e8f0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-
-    .brand-badge {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
-      border: 1px solid rgba(255,255,255,0.25);
-      display: grid;
-      place-items: center;
-      color: #fff;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      backdrop-filter: blur(6px);
-      overflow: hidden;
-    }
-    .brand-badge img { width: 100%; height: 100%; display: block; object-fit: contain; }
-
-    .lang-toggle {
-      display: inline-flex;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 999px;
-      overflow: hidden;
-      backdrop-filter: blur(6px);
-    }
-
-    .lang-toggle button {
-      appearance: none;
-      background: transparent;
-      color: #e2e8f0;
-      padding: 8px 14px;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .lang-toggle button.active {
-      background: #fff;
-      color: #0f172a;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      align-items: stretch;
-      margin-bottom: 18px;
-    }
-
-    .panel {
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 20px 50px rgba(2,6,23,0.25);
-      border: 1px solid #e2e8f0;
-      overflow: hidden;
-      animation: float-in 600ms ease both;
-    }
-
-    .panel:nth-child(1) { animation-delay: 80ms; }
-    .panel:nth-child(2) { animation-delay: 160ms; }
-
-    @keyframes float-in {
-      from { opacity: 0; transform: translateY(10px) scale(0.99); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .panel-content { padding: 24px; }
-    .hero .panel:first-child { background: linear-gradient(135deg, #ffffff, #f8fafc); border: 1px solid #e6edf8; box-shadow: 0 12px 28px rgba(2,6,23,0.10); border-left: 6px solid #2563eb; }
-    .hero .panel:first-child .panel-content { padding: 10px 18px 12px; }
-    .hero .panel:first-child .subtitle { margin-bottom: 2px; }
-
-    h1.page-title {
-      margin: 0 0 6px;
-      font-size: clamp(2.2rem, 5vw, 3rem);
-      text-align: center;
-      font-family: 'Space Grotesk', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-weight: 800;
-      letter-spacing: 0.3px;
-      background: linear-gradient(135deg, #0f172a 0%, #0b1220 40%, #1e293b 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .subtitle { color: #475569; margin-bottom: 6px; text-align: center; }
-
-    h2 {
-      margin-top: 30px;
-      margin-bottom: 15px;
-      font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-      border-bottom: 2px solid #4a90e2;
-      padding-bottom: 5px;
-      text-align: center;
-      font-family: 'Space Grotesk', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    h2 .lang-en { font-size: 1.1em; color: #0b1220; background: none; -webkit-background-clip: initial; background-clip: initial; }
-    .subcard .lang-en strong { color: #0b1220; }
-    .section > h2:first-child { margin-top: 2px; }
-
-    .section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 18px; box-shadow: 0 10px 24px rgba(2,6,23,0.10); border: 1px solid #e2e8f0; }
-
-    .lang {
-      margin-bottom: 15px;
-    }
-
-    .lang-en {
-      color: #718096;
-      font-size: 0.95rem;
-      margin-bottom: 8px;
-    }
-
-    .lang-ja {
-      color: #2d3748;
-      font-weight: 500;
-    }
-
-    ol {
-      margin-left: 20px;
-      margin-top: 10px;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    .link-button { display: inline-flex; align-items: center; gap: 8px; background: #2563eb; color: #fff; padding: 10px 16px; text-decoration: none; border-radius: 10px; font-weight: 600; margin: 6px 0; transition: transform .15s ease, box-shadow .15s ease; box-shadow: 0 8px 20px rgba(37,99,235,.35); }
-
-    .link-button:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(37,99,235,.45); }
-    .link-chip { display: inline-flex; align-items: center; gap: 6px; background: #2563eb; color: #fff; padding: 4px 10px; text-decoration: none; border-radius: 999px; font-weight: 700; box-shadow: 0 6px 14px rgba(37,99,235,.30); }
-    .link-chip:hover { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(37,99,235,.40); }
-
-    /* store buttons */
-    .store-buttons { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 8px 0 18px; flex-wrap: wrap; }
-    .link-button .icon { width: 22px; height: 22px; display: inline-block; }
-    .link-button.disabled { background: #94a3b8; cursor: not-allowed; pointer-events: none; box-shadow: none; }
-    .link-button.image { background: transparent; padding: 0; box-shadow: none; }
-    .link-button.image:hover { transform: none; box-shadow: none; }
-    .link-button.image picture { display: block; line-height: 0; width: 280px; height: auto; }
-    .link-button.image img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 8px; }
-    /* transparent App Store badge using mask */
-    .link-button.image { color: #0f172a; }
-    .appstore-badge { display: inline-block; height: 44px; aspect-ratio: 3.4 / 1; background: currentColor;
-      -webkit-mask-image: url('images/AppStore_logo.gif'); mask-image: url('images/AppStore_logo.gif');
-      -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-      -webkit-mask-position: center; mask-position: center;
-      -webkit-mask-size: contain; mask-size: contain; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-    /* download card */
-    .download-card { text-align: center; }
-    .download-badge { display: inline-block; width: 180px; line-height: 0; margin: 4px auto; }
-    .download-badge img { display: block; width: 100%; height: auto; border-radius: 8px; }
-    .section.download-card { padding-top: 4px; padding-bottom: 4px; }
-
-    .mockup {
-      position: relative;
-      background: linear-gradient(135deg, #f8fafc, #eef2ff);
-      border-left: 12px solid #2563eb;
-      height: 280px;
-      display: grid;
-      place-items: center;
-    }
-
-    .mockup .note { color: #475569; text-align: center; }
-
-    /* carousel */
-    .carousel {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-    }
-    .carousel img {
-      position: absolute;
-      max-height: 92%;
-      max-width: 92%;
-      width: auto;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 10px 24px rgba(2,6,23,0.2);
-      opacity: .35;               /* 非アクティブも見える */
-      transform: translateX(0) scale(.85);
-      transition: opacity .25s ease, transform .25s ease, z-index .25s ease;
-      z-index: 1;
-    }
-    .carousel img.active { opacity: 1; transform: translateX(0) scale(1); z-index: 3; }
-    .carousel .nav {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 8px;
-      pointer-events: none;
-    }
-    .carousel button {
-      pointer-events: auto;
-      appearance: none;
-      border: none;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: rgba(15,23,42,.65);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform .15s ease, background .15s ease;
-    }
-    .carousel button:hover { transform: translateY(-1px); background: rgba(15,23,42,.8); }
-
-    .contact {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 24px;
-      margin: 18px 0;
-      color: inherit;
-      box-shadow: 0 10px 24px rgba(2,6,23,0.10);
-    }
-
-    .contact p { margin: 6px 0; }
-
-    .contact a { color: #2563eb; text-decoration: none; font-weight: 600; }
-
-    .contact a:hover { text-decoration: underline; }
-
-    hr {
-      border: none;
-      border-top: 1px solid #e2e8f0;
-      margin: 30px 0;
-    }
-
-    .footer {
-      text-align: center;
-      color: #718096;
-      font-size: 0.9rem;
-      margin-top: 30px;
-    }
-
-  /* Scroll reveal */
-  .reveal { opacity: 0; transform: translateY(12px) scale(0.98); transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1); will-change: opacity, transform; }
-  .reveal.visible { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-
-  /* Subcards */
-  .subcards { display: grid; gap: 12px; }
-  .subcard { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 16px 18px; box-shadow: 0 8px 18px rgba(2,6,23,0.08); opacity: 0; transform: translateY(14px) scale(.98); transition: opacity .55s cubic-bezier(.22,.61,.36,1), transform .55s cubic-bezier(.22,.61,.36,1), box-shadow .3s ease; will-change: opacity, transform; }
-  .subcards.visible .subcard, .subcard.visible { opacity: 1; transform: none; animation: float-in .6s ease both; animation-delay: calc(var(--i, 0) * 90ms); }
-  .subcard:hover { transform: translateY(-2px); box-shadow: 0 12px 22px rgba(2,6,23,0.12); }
-  .subcard .lang-en { color: #0f172a; }
-  .subcard-title { margin-bottom: 6px; font-size: clamp(1.05rem, 2.2vw, 1.25rem); font-weight: 800; color: #0f172a; display: block; }
-  .subcard-title.lang-en { font-family: 'Space Grotesk', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; letter-spacing: .2px; }
-  @media (prefers-reduced-motion: reduce) {
-    .subcard { transition: none; transform: none; opacity: 1; }
-    .subcard:hover { transform: none; box-shadow: 0 8px 18px rgba(2,6,23,0.08); }
-  }
-
-    /* Full-bleed video */
-    .full-bleed { position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; margin-top: 8px; margin-bottom: 28px; }
-    .full-bleed video { display: block; width: 100%; max-width: 100vw; height: auto; border-radius: 0; box-shadow: none; pointer-events: none; -webkit-user-select: none; user-select: none; }
-    @media (min-width: 901px) {
-      .full-bleed { left: 0; right: 0; margin-left: 0; margin-right: 0; width: 100%; }
-      .full-bleed video { max-width: 100%; }
-    }
-
-    @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .nav { flex-direction: row; gap: 12px; align-items: center; }
-      .lang-toggle { margin-left: auto; }
-    }
-    @media (max-width: 480px) {
-      body { padding: 16px; }
-      h1.page-title { font-size: 1.6rem; }
-      .section { padding: 16px; }
-      .mockup { height: 220px; }
-      .link-button { width: 100%; justify-content: center; }
-    }
-
-    /* Language visibility */
-    [data-lang="en"] .lang-en { display: block; }
-    [data-lang="en"] .lang-ja { display: none; }
-    [data-lang="ja"] .lang-en { display: none; }
-    [data-lang="ja"] .lang-ja { display: block; }
-
-    /* Ensure store buttons stay side-by-side on small screens */
-    @media (max-width: 480px) {
-      .store-buttons .link-button { width: auto; }
-    }
-  </style>
+  <link rel="stylesheet" href="KotoKata_support.css">
 </head>
 <body>
   <div class="shell">
@@ -381,20 +34,12 @@
         <div>KotoKata Support</div>
       </div>
       <div class="lang-toggle" role="tablist" aria-label="Language toggle">
-        <button id="btn-en" class="active" aria-selected="true">EN</button>
-        <button id="btn-ja" aria-selected="false">日本語</button>
+        <button id="btn-ja" class="active" aria-selected="true">JP</button>
+        <button id="btn-id" aria-selected="false">IND</button>
+        <button id="btn-en" aria-selected="false">EN</button>
       </div>
     </div>
 
-    <div class="hero">
-      <div class="panel">
-        <div class="panel-content">
-          <h1 class="page-title">KotoKata Support</h1>
-          <p class="subtitle lang-en">Your AI-powered Indonesian dictionary assistant</p>
-          <p class="subtitle lang-ja">AIが支えるインドネシア語学習辞書</p>
-        </div>
-      </div>
-    </div>
 
   <div class="full-bleed reveal">
     <video src="images/Key_video.mp4" playsinline autoplay muted loop disablepictureinpicture>
@@ -402,65 +47,35 @@
     </video>
   </div>
 
-  <div class="section reveal download-card">
-    <a href="https://apps.apple.com/jp/app/kotokata/id6753936231" target="_blank" rel="noopener" class="download-badge" aria-label="Download on the App Store">
+  <a href="https://apps.apple.com/jp/app/kotokata/id6753936231" target="_blank" rel="noopener" aria-label="Download on the App Store" class="appstore-badge">
       <img src="AppStore_log.png" alt="Download on the App Store">
     </a>
-  </div>
 
-  <div class="section reveal">
-    <h2>
+  <details class="section reveal accordion">
+    <summary><h2>
       <span class="lang-ja">AI時代に語学は不要か？</span>
       <span class="lang-en">Language learning in the AI era?</span>
-    </h2>
-    <div class="subcards reveal">
-      <div class="subcard">
+      <span class="lang-id">Apakah belajar bahasa tidak diperlukan di era AI?</span>
+    </h2></summary>
         <div class="lang">
-          <div class="lang-ja">生成AIが普及しても、言語を学ぶ価値は変わりません。<br>AIが翻訳してくれる時代でも、自分の言葉で伝え、相手の言葉を理解する楽しさは特別なものです。</div>
-          <div class="lang-en">Even in the age of generative AI, the value of learning languages remains.<br>AI can translate for us, but the joy of expressing ourselves and understanding others is special.</div>
-        </div>
-      </div>
-      <div class="subcard">
-        <div class="lang">
-          <div class="lang-ja">「Kotokata」は、AIの力を活用して言語学習をもっと楽しく、効果的にするために生まれたアプリです。<br>履歴の保存、単語帳、学習用クイズなど、学びを継続するための機能を備えています。</div>
-          <div class="lang-en">Kotokata is an AI-powered app created to make language learning more enjoyable and effective.<br>It includes search history, a personal wordbook, and quiz features to support continuous study.</div>
-        </div>
-      </div>
-      <div class="subcard">
-        <div class="lang">
-          <div class="lang-ja">AIがサポートするからこそ、より自然で文脈に合った意味を理解できる。<br>そして、自分の言葉で話す力を育てられる——それが「Kotokata」の目指す学びの形です。</div>
-          <div class="lang-en">With AI’s assistance, you can grasp more natural, context-appropriate meanings.<br>And you can grow the ability to communicate in your own words — that’s the learning experience Kotokata pursues.</div>
-        </div>
-      </div>
+      <div class="lang-ja"><span class="lead-strong">生成AIが普及しても、言語を学ぶ価値は変わりません。</span><br>AIが翻訳してくれる時代でも、自分の言葉で伝え、相手の言葉を理解する楽しさは特別なものです。<br>AIを使った新たな言語学習体験——それが「<strong class="title-accent">Kotokata</strong>」の目指す学びの形です。</div>
+      <div class="lang-en"><span class="lead-strong">Even in the age of generative AI, the value of learning languages remains.</span><br>A new AI-powered language learning experience — that's the learning approach <strong class="title-accent">Kotokata</strong> pursues.</div>
+      <div class="lang-id"><span class="lead-strong">Meski AI generatif semakin umum, nilai belajar bahasa tidak berubah.</span><br>Pengalaman belajar bahasa baru dengan AI — itulah bentuk pembelajaran yang dikejar <strong class="title-accent">Kotokata</strong>.</div>
     </div>
-  </div>
+  </details>
 
-  <div class="section reveal">
-    <h2>
+  <details class="section reveal accordion">
+    <summary><h2>
       <span class="lang-ja">KotoKataとは？</span>
       <span class="lang-en">What is KotoKata?</span>
-    </h2>
-    <div class="subcards reveal">
-      <div class="subcard">
-        <div class="lang">
-          <div class="lang-ja">「Kotokata」は、インドネシア語を学ぶ人のために開発したAI辞書アプリです。<br>既存の辞書が少なく、使いにくいと感じたことから、Gemini APIを活用して自分で開発しました。<br>検索だけでなく、履歴の保存・単語帳の作成・学習用クイズ機能を搭載。<br>日々の学習をサポートします。</div>
-          <div class="lang-en">Kotokata is an AI-powered Indonesian dictionary designed for learners.<br>Since there were few reliable dictionaries available, I built one myself using the Gemini API.<br>It features search history, a personal wordbook, and quiz functions.<br>It supports your daily learning.</div>
-        </div>
-      </div>
-      <div class="subcard">
-        <div class="lang">
-          <div class="lang-ja">Geminiを利用するため、初回にAPIキーの登録が必要です。<br>APIの利用料金は非常に低く、通常の使用では<strong>月に数円（10円未満）</strong>ほどです。<br>AIが語彙の意味や用例を柔軟に説明してくれるため、従来の辞書にはない自然な理解が得られます。</div>
-          <div class="lang-en">You'll need to register your Gemini API key upon first launch.<br>The cost is extremely low—typically less than ¥10 per month with regular use.<br>By leveraging AI, the app provides flexible explanations and natural examples beyond traditional dictionaries.</div>
-        </div>
-      </div>
-      <div class="subcard">
-        <div class="lang">
-          <div class="lang-ja">学習者自身が「使いながら成長できる」新しいタイプのAI辞書を、ぜひお試しください。</div>
-          <div class="lang-en">Try a new type of AI dictionary that grows with your learning journey.</div>
-        </div>
-      </div>
+      <span class="lang-id">Apa itu Kotokata?</span>
+    </h2></summary>
+    <div class="lang">
+      <div class="lang-ja"><strong class="lead-strong">「<span class="title-accent">Kotokata</span>」は、インドネシア語を学ぶ人のために開発したAI辞書アプリです。</strong><br>検索だけでなく、履歴の保存・単語帳の作成・学習用クイズ機能を搭載しています。<br>Geminiを利用するため、初回にAPIキーの登録が必要です（通常の使用では月に数円ほど）。</div>
+      <div class="lang-en"><strong class="lead-strong"><span class="title-accent">Kotokata</span> is an AI-powered Indonesian dictionary designed for learners.</strong><br>It features search history, a personal wordbook, and quiz functions.<br>You’ll register a Gemini API key on first use (typical usage costs only a few yen per month).</div>
+      <div class="lang-id"><strong class="lead-strong"><span class="title-accent">Kotokata</span> adalah kamus Bahasa Indonesia bertenaga AI yang dirancang untuk pelajar.</strong><br>Dilengkapi riwayat pencarian, buku kata pribadi, dan fitur kuis.<br>Pendaftaran kunci API Gemini diperlukan saat pertama kali (biaya bulanan biasanya hanya beberapa yen).</div>
     </div>
-  </div>
+  </details>
 
   <div class="section reveal">
     <div class="panel mockup">
@@ -485,6 +100,7 @@
     <h2>
       <span class="lang-ja">使い方は超シンプル！</span>
       <span class="lang-en">Super simple to use!</span>
+      <span class="lang-id">Cara pakainya sangat sederhana!</span>
     </h2>
 
     <div class="subcards reveal">
@@ -496,6 +112,9 @@
           <div class="lang-en"><strong>1. Create your Google API key</strong><br>
           <a href="https://aistudio.google.com/api-keys" target="_blank" class="link-chip">👉 Click here</a> to generate your API key.<br>
           For instructions, please see <a href="https://satokenx.github.io/SA_privacy_policy/google-api-guide.html" target="_blank" class="link-chip">👉 this page</a>.</div>
+          <div class="lang-id"><strong>1. Buat kunci API Google</strong><br>
+          <a href="https://aistudio.google.com/api-keys" target="_blank" class="link-chip">👉 Halaman ini</a> untuk membuat kunci API Anda.<br>
+          Untuk petunjuknya, lihat <a href="https://satokenx.github.io/SA_privacy_policy/google-api-guide.html" target="_blank" class="link-chip">👉 halaman ini</a>.</div>
         </div>
       </div>
 
@@ -505,6 +124,8 @@
           キーを入力すると、AI辞書機能が使えるようになります。</div>
           <div class="lang-en"><strong>2. Enter it in Settings</strong><br>
           Once entered, the AI-powered dictionary is activated.</div>
+          <div class="lang-id"><strong>2. Masukkan di Pengaturan</strong><br>
+          Setelah dimasukkan, kamus bertenaga AI akan aktif.</div>
         </div>
       </div>
 
@@ -514,6 +135,8 @@
           単語を検索して単語帳に追加できます。単語の検索はインドネシア語からも日本語からもできます。</div>
           <div class="lang-en"><strong>3. Search & Wordbook</strong><br>
           You can search words and add them to your wordbook. Search works Japanese ↔ Indonesian.</div>
+          <div class="lang-id"><strong>3. Pencarian & Buku Kata</strong><br>
+          Anda dapat mencari kata dan menambahkannya ke buku kata. Pencarian mendukung Jepang ↔ Indonesia.</div>
         </div>
       </div>
       <div class="subcard">
@@ -522,25 +145,23 @@
           単語帳に登録した単語からランダムにクイズを生成します。オリジナルの単語クイズ集を空き時間で！</div>
           <div class="lang-en"><strong>4. Quiz</strong><br>
           Generate random quizzes from your saved words. Practice anytime with your own word quiz set!</div>
+          <div class="lang-id"><strong>4. Kuis</strong><br>
+          Hasilkan kuis acak dari kata yang Anda simpan. Berlatih kapan saja dengan set kuis Anda sendiri!</div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="section reveal download-card">
-    <a href="https://apps.apple.com/jp/app/kotokata/id6753936231" target="_blank" rel="noopener" class="download-badge" aria-label="Download on the App Store">
-      <img src="AppStore_log.png" alt="Download on the App Store">
-    </a>
   </div>
 
   <div class="contact reveal">
     <h2 style="margin-top: 0;">
       <span class="lang-en">Support & Contact</span>
       <span class="lang-ja">サポート・問い合わせ</span>
+      <span class="lang-id">Dukungan & Kontak</span>
     </h2>
     <div class="lang">
       <div class="lang-en">If you have any questions or issues, please contact us at the email address below.</div>
       <div class="lang-ja">ご質問や不具合などがありましたら、以下のメールアドレスまでご連絡ください。</div>
+      <div class="lang-id">Jika Anda memiliki pertanyaan atau masalah, silakan hubungi kami melalui email di bawah ini.</div>
     </div>
     <p><a href="mailto:sato@socialart.jp">sato@socialart.jp</a></p>
   </div>
@@ -553,94 +174,7 @@
 
   </div>
 
-  <script>
-    (function(){
-      var root = document.documentElement;
-      var btnEn = document.getElementById('btn-en');
-      var btnJa = document.getElementById('btn-ja');
-      // carousel
-      var c = document.getElementById('kk-carousel');
-      var slides = c ? Array.prototype.slice.call(c.querySelectorAll('img')) : [];
-      var idx = 0;
-      function place(k){
-        // 相対位置を算出（-2,-1,0,+1,+2...）
-        var n = slides.length;
-        var rel = (k - idx + n) % n; // 0..n-1
-        if(rel > n/2) rel = rel - n; // 例: 3/4 -> -1
-        var offset = 0;
-        var scale = .85;
-        var opacity = .35;
-        var z = 1;
-        if(rel === 0){ offset = 0; scale = 1; opacity = 1; z = 3; }
-        else if(Math.abs(rel) === 1){ offset = rel * 140; scale = .92; opacity = .7; z = 2; }
-        else { offset = rel * 200; scale = .85; opacity = .35; z = 1; }
-        slides[k].style.transform = 'translateX(' + offset + 'px) scale(' + scale + ')';
-        slides[k].style.opacity = opacity;
-        slides[k].style.zIndex = z;
-        slides[k].classList.toggle('active', rel === 0);
-      }
-      function show(i){
-        if(!slides.length) return;
-        idx = (i + slides.length) % slides.length;
-        slides.forEach(function(_, k){ place(k); });
-      }
-      var prev = document.getElementById('kk-prev');
-      var next = document.getElementById('kk-next');
-      if(prev && next){
-        prev.addEventListener('click', function(){ show(idx - 1); });
-        next.addEventListener('click', function(){ show(idx + 1); });
-        var startX = 0, endX = 0;
-        c.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; });
-        c.addEventListener('touchend', function(e){ endX = e.changedTouches[0].clientX; var dx = endX - startX; if(Math.abs(dx) > 40){ if(dx < 0) show(idx + 1); else show(idx - 1); } });
-      }
-      // 初期配置
-      show(0);
-      function setLang(l){
-        root.setAttribute('data-lang', l);
-        if(l==='en'){ btnEn.classList.add('active'); btnJa.classList.remove('active'); }
-        else { btnJa.classList.add('active'); btnEn.classList.remove('active'); }
-        localStorage.setItem('kk_support_lang', l);
-      }
-      btnEn.addEventListener('click', function(){ setLang('en'); });
-      btnJa.addEventListener('click', function(){ setLang('ja'); });
-      var saved = localStorage.getItem('kk_support_lang');
-      if(saved === 'ja' || saved === 'en'){ setLang(saved); }
-      // scroll reveal
-      var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-      // prepare subcard delays
-      var subcardContainers = Array.prototype.slice.call(document.querySelectorAll('.subcards'));
-      subcardContainers.forEach(function(container){
-        var cards = Array.prototype.slice.call(container.querySelectorAll('.subcard'));
-        cards.forEach(function(card, i){ card.style.setProperty('--i', i); });
-      });
-      if('IntersectionObserver' in window){
-        var io = new IntersectionObserver(function(entries, observer){
-          entries.forEach(function(entry){
-            if(entry.isIntersecting){
-              entry.target.classList.add('visible');
-              if(entry.target.classList.contains('subcards')){
-                var cards = Array.prototype.slice.call(entry.target.querySelectorAll('.subcard'));
-                cards.forEach(function(card, i){ card.style.setProperty('--i', i); });
-                // ensure each subcard is explicitly marked visible for reliability
-                requestAnimationFrame(function(){
-                  cards.forEach(function(card){ card.classList.add('visible'); });
-                });
-              }
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
-        reveals.forEach(function(el){ io.observe(el); });
-        // also animate each subcard individually as fallback
-        var allCards = Array.prototype.slice.call(document.querySelectorAll('.subcard'));
-        allCards.forEach(function(card){ io.observe(card); });
-      } else {
-        reveals.forEach(function(el){ el.classList.add('visible'); });
-        var allCards = Array.prototype.slice.call(document.querySelectorAll('.subcard'));
-        allCards.forEach(function(card){ card.classList.add('visible'); });
-      }
-    })();
-  </script>
+  <script src="js/kotokata.js"></script>
 
 </body>
 </html>
