@@ -225,8 +225,8 @@ li {
 .link-button { display: inline-flex; align-items: center; gap: 8px; background: #2563eb; color: #fff; padding: 10px 16px; text-decoration: none; border-radius: 10px; font-weight: 600; margin: 6px 0; transition: transform .15s ease, box-shadow .15s ease; box-shadow: 0 8px 20px rgba(37,99,235,.35); }
 
 .link-button:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(37,99,235,.45); }
-.link-chip { display: inline-flex; align-items: center; gap: 6px; background: #2563eb; color: #fff; padding: 4px 10px; text-decoration: none; border-radius: 999px; font-weight: 700; box-shadow: 0 6px 14px rgba(37,99,235,.30); }
-.link-chip:hover { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(37,99,235,.40); }
+.link-chip { display: inline-flex; align-items: center; gap: 6px; background: #fff; color: #0f172a; padding: 4px 10px; text-decoration: none; border-radius: 999px; font-weight: 700; box-shadow: 0 6px 14px rgba(0,0,0,.15); border: 1px solid #e2e8f0; letter-spacing: normal; }
+.link-chip:hover { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(66,133,244,.40); }
 
 /* store buttons */
 .store-buttons { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 8px 0 18px; flex-wrap: wrap; }
@@ -243,11 +243,6 @@ li {
   width: fit-content;
   margin: 12px auto 20px;
   line-height: 0;
-  background: #ffffff;
-  border: 2px solid #ffffff; /* 白枠 */
-  border-radius: 10px;
-  padding: 4px 6px;
-  box-shadow: 0 6px 14px rgba(2,6,23,0.10);
 }
 .appstore-badge img {
   display: block;
@@ -362,6 +357,14 @@ hr {
 .subcards.visible .subcard, .subcard.visible { opacity: 1; transform: none; animation: float-in .6s ease both; animation-delay: calc(var(--i, 0) * 90ms); }
 .subcard:hover { transform: translateY(-2px); box-shadow: 0 12px 22px rgba(2,6,23,0.12); }
 .subcard .lang-en { color: #0f172a; }
+.subcard .lang strong {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
 .subcard-title { margin-bottom: 6px; font-size: clamp(1.05rem, 2.2vw, 1.25rem); font-weight: 800; color: #0f172a; display: block; }
 .subcard-title.lang-en { font-family: 'Space Grotesk', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; letter-spacing: .2px; }
 @media (prefers-reduced-motion: reduce) {
