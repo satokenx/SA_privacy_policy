@@ -225,8 +225,8 @@ li {
 .link-button { display: inline-flex; align-items: center; gap: 8px; background: #2563eb; color: #fff; padding: 10px 16px; text-decoration: none; border-radius: 10px; font-weight: 600; margin: 6px 0; transition: transform .15s ease, box-shadow .15s ease; box-shadow: 0 8px 20px rgba(37,99,235,.35); }
 
 .link-button:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(37,99,235,.45); }
-.link-chip { display: inline-flex; align-items: center; gap: 6px; background: #fff; color: #0f172a; padding: 4px 10px; text-decoration: none; border-radius: 999px; font-weight: 700; box-shadow: 0 6px 14px rgba(0,0,0,.15); border: 1px solid #e2e8f0; letter-spacing: normal; }
-.link-chip:hover { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(66,133,244,.40); }
+a.link-chip, .link-chip { display: inline-flex; align-items: center; gap: 6px; background-color: #ffffff !important; background: #ffffff !important; color: #0f172a !important; padding: 4px 10px; text-decoration: none; border-radius: 999px; font-weight: 700; box-shadow: 0 6px 14px rgba(0,0,0,.15); border: 1px solid #e2e8f0; letter-spacing: normal; }
+a.link-chip:hover, .link-chip:hover { transform: translateY(-1px); box-shadow: 0 10px 18px rgba(66,133,244,.40); background-color: #ffffff !important; background: #ffffff !important; }
 
 /* store buttons */
 .store-buttons { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 8px 0 18px; flex-wrap: wrap; }
