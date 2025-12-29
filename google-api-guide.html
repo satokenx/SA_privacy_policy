@@ -10,8 +10,8 @@
     <div class="container">
         <div class="nav">
             <div class="lang-toggle" role="tablist" aria-label="Language toggle">
-                <button id="btn-ja" class="active" aria-selected="true">JP</button>
-                <button id="btn-id" aria-selected="false">IDN</button>
+                <button id="btn-ja" class="active" role="tab" aria-selected="true" aria-controls="content-ja">JP</button>
+                <button id="btn-id" role="tab" aria-selected="false" aria-controls="content-id">IDN</button>
             </div>
         </div>
         <div class="header">
@@ -25,7 +25,7 @@
                 <span class="lang-ja">1. Google AI Studio にアクセス</span>
                 <span class="lang-id">1. Akses Google AI Studio</span>
             </h3>
-            <a href="https://aistudio.google.com/api-keys" target="_blank" class="link-chip">
+            <a href="https://aistudio.google.com/api-keys" target="_blank" rel="noopener noreferrer" class="link-chip">
                 <span class="lang-ja">👉 <span style="letter-spacing: 1px;"><span style="color: #4285F4;">G</span><span style="color: #EA4335;">o</span><span style="color: #FBBC05;">o</span><span style="color: #4285F4;">g</span><span style="color: #34A853;">l</span><span style="color: #EA4335;">e</span></span> <span style="color: #2d3748; letter-spacing: normal;">AI Studio</span></span>
                 <span class="lang-id">👉 <span style="letter-spacing: 1px;"><span style="color: #4285F4;">G</span><span style="color: #EA4335;">o</span><span style="color: #FBBC05;">o</span><span style="color: #4285F4;">g</span><span style="color: #34A853;">l</span><span style="color: #EA4335;">e</span></span> <span style="color: #2d3748; letter-spacing: normal;">AI Studio</span></span>
             </a>
@@ -45,17 +45,17 @@
                     <span class="lang-ja">1. 「API キーを作成」ボタンをクリックします。</span>
                     <span class="lang-id">1. Klik tombol "Buat kunci API".</span>
                 </p>
-                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_1.png" alt="API キー作成画面" class="guide-image"></span>
-                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_1.png" alt="API キー作成画面" class="guide-image"></span>
+                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_1.png" alt="Google AI Studio の API キー作成ボタンが表示された画面" class="guide-image" loading="lazy"></span>
+                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_1.png" alt="Layar Google AI Studio menampilkan tombol Buat kunci API" class="guide-image" loading="lazy"></span>
                 
                 <p>
                     <span class="lang-ja">2. プロジェクトが無い場合は、プロジェクトを作成します。</span>
                     <span class="lang-id">2. Jika tidak ada proyek, buat proyek baru.</span>
                 </p>
-                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_2.png" alt="プロジェクト作成" class="guide-image"></span>
-                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_2.png" alt="プロジェクト作成" class="guide-image"></span>
-                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_3.png" alt="プロジェクト名入力" class="guide-image"></span>
-                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_3.png" alt="プロジェクト名入力" class="guide-image"></span>
+                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_2.png" alt="新しいプロジェクトを作成するためのモーダルダイアログ" class="guide-image" loading="lazy"></span>
+                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_2.png" alt="Dialog modal untuk membuat proyek baru" class="guide-image" loading="lazy"></span>
+                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_3.png" alt="プロジェクト名に「Kotokata」と入力する画面" class="guide-image" loading="lazy"></span>
+                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_3.png" alt="Layar input nama proyek dengan 'Kotokata'" class="guide-image" loading="lazy"></span>
                 
                 <p>
                     <span class="lang-ja">3. プロジェクト名を入力して「プロジェクトを作成」をクリックします。<br>
@@ -63,8 +63,8 @@
                     <span class="lang-id">3. Masukkan nama proyek dan klik "Buat proyek".<br>
                     <small>※Nama proyek bisa apa saja yang mudah Anda pahami. Di sini kami menggunakan "Kotokata".</small></span>
                 </p>
-                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_4.png" alt="プロジェクト作成完了" class="guide-image"></span>
-                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_4.png" alt="プロジェクト作成完了" class="guide-image"></span>
+                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_4.png" alt="プロジェクトが正常に作成された確認画面" class="guide-image" loading="lazy"></span>
+                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_4.png" alt="Layar konfirmasi proyek berhasil dibuat" class="guide-image" loading="lazy"></span>
                 
                 <p>
                     <span class="lang-ja">4. プロジェクトが作成されたら、キー名を設定して「キーを作成」をクリックします。<br>
@@ -72,26 +72,26 @@
                     <span class="lang-id">4. Setelah proyek dibuat, atur nama kunci dan klik "Buat kunci".<br>
                     <small>※Nama kunci juga bisa apa saja yang mudah Anda pahami. Di sini kami menggunakan "Kotokata".</small></span>
                 </p>
-                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_5.png" alt="キー作成" class="guide-image"></span>
-                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_5.png" alt="キー作成" class="guide-image"></span>
-                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_6.png" alt="API キー一覧" class="guide-image"></span>
-                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_6.png" alt="API キー一覧" class="guide-image"></span>
+                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_5.png" alt="API キーの名前を設定して作成ボタンをクリックする画面" class="guide-image" loading="lazy"></span>
+                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_5.png" alt="Layar untuk mengatur nama API key dan klik tombol buat" class="guide-image" loading="lazy"></span>
+                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_6.png" alt="作成された API キーが一覧に表示された画面" class="guide-image" loading="lazy"></span>
+                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_6.png" alt="Layar menampilkan API key yang dibuat dalam daftar" class="guide-image" loading="lazy"></span>
                 
                 <p>
                     <span class="lang-ja">5. 作成されたAPIキーをコピーします。キー名の横のコピーアイコンをクリックするか、「Copy API key」ボタンをクリックします。</span>
                     <span class="lang-id">5. Salin API key yang dibuat. Klik ikon salin di sebelah nama kunci atau klik tombol "Salin kunci API".</span>
                 </p>
-                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_7.png" alt="API キーコピー" class="guide-image"></span>
-                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_7.png" alt="API キーコピー" class="guide-image"></span>
-                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_8.png" alt="API キーコピー方法" class="guide-image"></span>
-                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_8.png" alt="API キーコピー方法" class="guide-image"></span>
+                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_7.png" alt="API キーをコピーするアイコンが表示された画面" class="guide-image" loading="lazy"></span>
+                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_7.png" alt="Layar menampilkan ikon untuk menyalin API key" class="guide-image" loading="lazy"></span>
+                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_8.png" alt="「Copy API key」ボタンをクリックする画面" class="guide-image" loading="lazy"></span>
+                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_8.png" alt="Layar untuk mengklik tombol 'Salin kunci API'" class="guide-image" loading="lazy"></span>
                 
                 <p>
                     <span class="lang-ja">6. コピーしたAPIキーを、Kotokataの設定画面の「Gemini API キー」にペーストしてください。</span>
                     <span class="lang-id">6. Tempelkan API key yang disalin ke "Kunci API Gemini" di layar pengaturan Kotokata.</span>
                 </p>
-                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_9.jpg" alt="API キー確認" class="guide-image"></span>
-                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_9.jpg" alt="API キー確認" class="guide-image"></span>
+                <span class="lang-ja"><img src="images/googleApiGuide/apikey_jp_9.jpg" alt="Kotokata アプリの設定画面で API キーをペーストする画面" class="guide-image" loading="lazy"></span>
+                <span class="lang-id"><img src="images/googleApiGuide/apikey_idn_9.jpg" alt="Layar pengaturan aplikasi Kotokata untuk menempelkan API key" class="guide-image" loading="lazy"></span>
             </div>
         </div>
 
