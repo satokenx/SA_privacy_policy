@@ -1,23 +1,21 @@
 (function(){
   var root = document.documentElement;
-  var btnEn = document.getElementById('btn-en');
   var btnJa = document.getElementById('btn-ja');
   var btnId = document.getElementById('btn-id');
-  if(!btnEn || !btnJa || !root) return;
+  if(!root || !btnJa) return;
   function setLang(l){
+    // 2言語（ja/id）想定。旧保存値'en'は'ja'にフォールバック
+    if(l !== 'ja' && l !== 'id') l = 'ja';
     root.setAttribute('data-lang', l);
-    btnEn.classList.toggle('active', l === 'en');
     btnJa.classList.toggle('active', l === 'ja');
     if(btnId) btnId.classList.toggle('active', l === 'id');
     try { localStorage.setItem('kk_support_lang', l); } catch(e){}
   }
-  btnEn.addEventListener('click', function(){ setLang('en'); });
   btnJa.addEventListener('click', function(){ setLang('ja'); });
   if(btnId) btnId.addEventListener('click', function(){ setLang('id'); });
   var saved = null;
   try { saved = localStorage.getItem('kk_support_lang'); } catch(e){}
-  if(saved === 'ja' || saved === 'en' || saved === 'id'){ setLang(saved); }
-  else { setLang('ja'); }
+  setLang(saved);
 })();
 
 (function(){
