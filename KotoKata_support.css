@@ -246,10 +246,12 @@ a.link-chip:hover, .link-chip:hover { transform: translateY(-1px); box-shadow: 0
 }
 .appstore-badge img {
   display: block;
-  width: 160px;  /* 小さめ */
+  width: 160px;  /* 小さめ（デフォルト） */
   height: auto;
   border-radius: 6px;
 }
+.store-buttons .appstore-badge { margin: 12px 0 20px; width: 180px; height: 44px; display: block; }
+.store-buttons .appstore-badge img { width: 100%; height: 100%; object-fit: contain; } /* 幅・高さの枠を統一 */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 /* download card */
 .download-badge { display: inline-block; width: 180px; line-height: 0; }
@@ -423,5 +425,7 @@ hr {
 
 /* Ensure store buttons stay side-by-side on small screens */
 @media (max-width: 480px) {
-  .store-buttons .link-button { width: auto; }
+  .store-buttons { flex-wrap: nowrap; gap: 8px; justify-content: center; }
+  .store-buttons .appstore-badge { width: 150px; height: 40px; margin: 8px 0 16px; }
+  .store-buttons .appstore-badge img { width: 100%; height: 100%; object-fit: contain; }
 }
